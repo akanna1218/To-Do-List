@@ -2,12 +2,17 @@
   "things": [
     {
       "id": 1,
-      "item": "nike",
+      "item": "Nike",
       "cpl": true
     },
     {
       "id": 2,
-      "item": "puma",
+      "item": "Puma",
+      "cpl": false
+    },
+    {
+      "id": 3,
+      "item": "Adiddas",
       "cpl": false
     }
   ]

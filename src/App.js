@@ -5,7 +5,7 @@ import Content from "./Content";
 import Footer from "./components/Footer";
 import AddNotes from "./components/AddNotes";
 import SearchNote from "./components/SearchNote";
-import { Routes, Route ,useNavigate, json} from "react-router-dom";
+import { Routes, Route ,useNavigate} from "react-router-dom";
 import api from "./api/things";
 import EditNote from "./components/EditNote";
 
