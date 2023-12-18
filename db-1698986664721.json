@@ -1,0 +1,7 @@
+{
+  "things": {
+    "name": 1,
+    "data": "This information is fetched from API created by npm server",
+    "condit": false
+  }
+}

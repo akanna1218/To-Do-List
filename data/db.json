@@ -1,0 +1,14 @@
+{
+  "things": [
+    {
+      "id": 1,
+      "item": "nike",
+      "cpl": true
+    },
+    {
+      "id": 2,
+      "item": "puma",
+      "cpl": false
+    }
+  ]
+}

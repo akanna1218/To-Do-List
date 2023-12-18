@@ -1,0 +1,110 @@
+header{
+    background-color: rgb(234, 225, 130);
+    border-radius: 6px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+
+
+.Box{
+    height:max-content;
+    width:max-content;
+    margin-bottom: 20px;
+    background-color:#f6f8f4;
+    border-radius:10px;
+    padding-right:60px;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.Box:hover{
+    background-color: rgb(241, 145, 145);
+}
+#root{
+    margin: 40px;
+    padding: 40px;
+    width: max-content;
+    height: max-content;
+    overflow: hidden;
+    background-color:  rgba(225, 215, 215, 0.861);
+    border-radius: 10px;
+    box-shadow: 20px 20px 12px black;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to top, #68EACC 0%, #e84969 100%);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.App{
+    border-radius: 10px;
+    border-color: black;
+    box-shadow: 5px 5px blur;
+    justify-content: center;
+
+
+}
+
+footer{
+    text-align: center;
+    border-radius: 10px;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.AddNote button{
+    color: rgb(13, 13, 13);
+    border-radius: 2px;
+}
+
+.AddNote input{
+    width: 200px;
+    margin: 0 auto;
+    height: max-content;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    font-size: 17px;
+    padding: 0 auto;
+    transition: all 0.3s ease;
+  }
+  .SearchNote input{
+    margin: 0 auto;
+    width: 200px;
+    height: max-content;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    font-size: 17px;
+    padding: 0 auto;
+    transition: all 0.3s ease;
+  }
+
+  .content button{
+    color: #f51515;
+    margin-right: 5px;
+  }
+  .content{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    list-style: none; 
+
+}
+
+.content li{
+    padding: 0 auto;
+    width: max-content;
+    height: max-content;
+    padding: 5px;
+}
+
+.edit{
+    color: #ccc;
+    background-color: rgb(220, 228, 228);
+    border-radius: 4px;
+}
