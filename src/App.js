@@ -105,7 +105,7 @@ function App() {
     }
 
     // Uncomment this for normal patch method without axios
-    // const UpdateOptions = {
+    // const UpdateOptions = {t
     //   method: "PATCH",
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify({ cpl: selectedItm[0].cpl }), // from the filered array we have multiple property , here we need to update the a specfic property cpl so we are getting value from the filtered array and passing it to the key cpl.
