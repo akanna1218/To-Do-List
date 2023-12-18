@@ -3,12 +3,12 @@
     {
       "id": 1,
       "item": "Nike",
-      "cpl": true
+      "cpl": false
     },
     {
       "id": 2,
       "item": "Puma",
-      "cpl": true
+      "cpl": false
     },
     {
       "id": 3,

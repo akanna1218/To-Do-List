@@ -25,9 +25,9 @@ header{
 #root{
     margin: 40px;
     padding: 40px;
-    width: max-content;
+    width: 300px;
     height: max-content;
-    overflow: hidden;
+    overflow: auto;
     background-color:  rgba(225, 215, 215, 0.861);
     border-radius: 10px;
     box-shadow: 20px 20px 12px black;
@@ -64,8 +64,10 @@ footer{
 }
 
 .AddNote input{
+    display:inline-table;
     width: 200px;
-    margin: 0 auto;
+    margin: 0 10px;
+    margin-left: 40px;
     height: max-content;
     outline: none;
     border-radius: 3px;
@@ -79,11 +81,14 @@ footer{
     width: 200px;
     height: max-content;
     outline: none;
+    display: flex;
+    justify-content: right;
     border-radius: 3px;
     border: 1px solid #ccc;
     font-size: 17px;
     padding: 0 auto;
     transition: all 0.3s ease;
+    
   }
 
   .content button{

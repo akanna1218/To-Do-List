@@ -18,8 +18,9 @@ function AddNotes({newNote,setNewnote,HandleNewnote,len,setErr}){
 
           {setNewnote&&
            <button 
+           
                 onClick={HandleNewnote} 
-                style={{marginLeft:"10px"}}>
+                >
                     <FaRegCalendarPlus 
                     tabIndex={0}        />
             </button>

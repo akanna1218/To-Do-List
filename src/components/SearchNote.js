@@ -6,7 +6,6 @@ const SearchNote = ({search,setSearch}) => {
         <label htmlFor='searchNote'></label>
         <input 
         type='text'
-        style={{marginTop:'5px'}}
         placeholder='Find Note '
         value={search}
         onChange={(e)=>setSearch(e.target.value)}
