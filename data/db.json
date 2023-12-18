@@ -8,12 +8,12 @@
     {
       "id": 2,
       "item": "Puma",
-      "cpl": false
+      "cpl": true
     },
     {
       "id": 3,
       "item": "Adiddas",
-      "cpl": false
+      "cpl": true
     }
   ]
 }
