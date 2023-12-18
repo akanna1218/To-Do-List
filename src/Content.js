@@ -7,7 +7,6 @@ import { FaEdit } from "react-icons/fa";
 const Content = ({ Items, HandleCheck, search, HandleDelete }) => {
  
   if (Items.length === 0) {
-    // let id=1
     return (
       <div>
         <h2 style={{ textAlign: "center" }}> Things To Check </h2>
