@@ -17,10 +17,7 @@ import EditNote from "./components/EditNote";
 //            USESTATES.
 
 function App() {
-  const [Items, setItems] = useState( ()=>{
-    const storeLocal=localStorage.getItem('user');                                                    // get the local storage by giving the local storage name
-      return storeLocal?JSON.parse(storeLocal):[]                                                       // then check anything present in local storage if yes parse it if no make it as empty []
-    });                                                           // here we don't have to pass the api link bcaz that is in different format , instead in the Api fetching function we convert the data and pass that variable to the setState
+  const [Items, setItems] = useState([]);
   const [newNote, setNewnote] = useState("");
   const [search, setSearch] = useState("");
   const [editNote, setEditNote] = useState("");
@@ -32,42 +29,38 @@ function App() {
   // const API_Fetcz = "http://localhost:3500/things";
 
 
-  //Un comment for using Local storage version. and add it to the Main data use state which is Items.   //and remove api calling lines.
-  //()=>{
-  //  const storeLocal=localStorage.getItem('user');                                                    // get the local storage by giving the local storage name
-  //  return storeLocal?JSON.parse(storeLocal):[]                                                       // then check anything present in local storage if yes parse it if no make it as empty []
-  //}
+  
 
   
 
   
 
-  // useEffect(() => {
-  //   const fetch_data = async () => {
-  //     try {
-  //       const response = await api.get("/");                                                          // create a variable and use axios .get method inside paranthesis (give patha where the data needs to show)
-  //       setItems(response.data);
+  useEffect(() => {
+    const fetch_data = async () => {
+      try {
+        const response = await api.get("/");                                                          // create a variable and use axios .get method inside paranthesis (give patha where the data needs to show)
+        setItems(response.data);
 
-  //       // UN COMMENT THIS FOR USING NORMAL FETCH OPERATIONS.
-  //       // const Gettdata= await fetch(API_Fetcz)
-  //       // if (!Gettdata.ok) throw Error("404 not found ");                                            
-  //       // console.log(Gettdata)
-  //       // const jsnCnvrt =await Gettdata.json();
-  //       // console.log(jsnCnvrt)
-  //       // setItems(jsnCnvrt);
+        // UN COMMENT THIS FOR USING NORMAL FETCH OPERATIONS.
+        // const Gettdata= await fetch(API_Fetcz)
+        // if (!Gettdata.ok) throw Error("404 not found ");                                            
+        // console.log(Gettdata)
+        // const jsnCnvrt =await Gettdata.json();
+        // console.log(jsnCnvrt)
+        // setItems(jsnCnvrt);
 
-  //     } catch (err) {
-  //       if (err.response) {
-  //         console.log(err.response.status);
-  //       } else {
-  //         console.log(err.message);
-  //       }
-  //     } finally {
-  //       setProcessing(false);
-  //     }
-  //   };
-  //   fetch_data();
-  // }, [setItems]);
+      } catch (err) {
+        if (err.response) {
+          console.log(err.response.status);
+        } else {
+          console.log(err.message);
+        }
+      } finally {
+        setProcessing(false);
+      }
+    };
+    fetch_data();
+  }, [setItems]);
 
   //uncomment thiis for using setting interval  
   //   setTimeout(() => {
@@ -96,9 +89,9 @@ function App() {
       );                                                                                                              // inga antha id condition satisfied na map panra array la checked property uh change panniru nu solrom , adhu mattum thaan set state store aagum maththa property delete aagirum , to prevent that , ...itmIterator uh call panra so antha property um serthu add aagirum
 
       const selectedItm = listOfitems.filter((Litm) => Litm.id === id);                                               // here we are filtering only the object which we clicked by matching the id we get.
-      // const PatchApi = await api.patch(`/${id}`, { cpl: selectedItm[0].cpl });                                        // this .patch() is for updating only one property , to change entire property we have to use .put()
-      //                                                                                                                 //... this is a spread operator that will create  a exact copy , and the variable going to copy is object then use {...CopyingVaraible}
-      // console.log(PatchApi);                                                                                          // for patch and delete  we have to send the id inside the paranthesis , which is we got from the onclicking  button whre we pass function
+      const PatchApi = await api.patch(`/${id}`, { cpl: selectedItm[0].cpl });                                        // this .patch() is for updating only one property , to change entire property we have to use .put()
+                                                                                                                      //... this is a spread operator that will create  a exact copy , and the variable going to copy is object then use {...CopyingVaraible}
+      console.log(PatchApi);                                                                                          // for patch and delete  we have to send the id inside the paranthesis , which is we got from the onclicking  button whre we pass function
       setItems(listOfitems);
     } catch (err) {
       console.log(err.message);
@@ -119,8 +112,8 @@ function App() {
 
   const HandleDelete = async (id) => {
     try {
-      // const response = await api.delete(`${id}`);                                                                       // we don't need to delete specific property so just mention id , then entire content of array will be deleted
-      // console.log(response);
+      const response = await api.delete(`${id}`);                                                                       // we don't need to delete specific property so just mention id , then entire content of array will be deleted
+      console.log(response);
       const ItemToDelete = Items.filter((itdel) => itdel.id !== id);
       setItems(ItemToDelete);
 
@@ -147,8 +140,8 @@ function App() {
     try {
       let id = Items.length ? Items[len - 1].id + 1 : 1;                                                              // this is for getting id
       const NewNoteFromUser = { id, cpl: false, item: newNote };                                                      // creating new object, passing the newNote's state to the item property.
-      // const postApi = await api.post("/", NewNoteFromUser);                                                           // Only adding the new data to the existing one 
-      // console.log(postApi);
+      const postApi = await api.post("/", NewNoteFromUser);                                                           // Only adding the new data to the existing one 
+      console.log(postApi);
       const NewListToExist = [...Items, NewNoteFromUser];                                                             // this because we want the old data too with the main State.
       setItems(NewListToExist);
 
@@ -170,11 +163,10 @@ function App() {
   const HandleEditSubmit = async (id,e) => {
     const edittedNote = { id, item: editNote, cpl: false };                                                           // pass the entire property , and change the value of the property that you have editted. 
     try {
-      // const response = await api.put(`/${id}`, edittedNote);                                                          // updating the entire array so use put
-      // setItems(
-      //   Items.map((SingleNote) =>
-      //     SingleNote.id === id ? { ...response.data } : SingleNote)  );                                               // same spread operator the varaible we r going to copy is object so {...}  // we have to use response.data , so that data from the response link will copied
-      setItems([...Items, edittedNote])
+      const response = await api.put(`/${id}`, edittedNote);                                                          // updating the entire array so use put
+      setItems(
+        Items.map((SingleNote) =>
+          SingleNote.id === id ? { ...response.data } : SingleNote)  );                                               // same spread operator the varaible we r going to copy is object so {...}  // we have to use response.data , so that data from the response link will copied
       setEditNote("");
       navigateToHome('/')
     } 
